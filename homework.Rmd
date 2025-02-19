@@ -1,5 +1,5 @@
 ---
-title: "homework"
+title: "Homework Links"
 output: html_document
 date: "2025-02-19"
 ---
@@ -9,3 +9,5 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 Week 3 Homework [HW3 Link](Homework3.html)
+Week 4 Homework [HW 4 Link](Homework4.html)
+Week 5 Homework [HW 5 Link](Homework5.html)
