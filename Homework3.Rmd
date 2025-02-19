@@ -1,0 +1,92 @@
+---
+title: "Homework3"
+output: html_document
+date: "2025-02-05"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Solutions to homework 3 on regular expression puzzles.
+
+#### Question 1:
+```
+Find: \s{2,}
+Replace: ,
+```
+Explanation: Find all whitespace that consists of 2 or
+more whitespace characters
+
+#### Question 2:
+```
+Find: (\w+), (\w+), (.+)
+Replace: \2 \1 (\3)
+```
+Explanation: Capture first name, last name, and remaining
+words about university and then rearrange them
+
+#### Question 3:
+```
+Find: .mp3\s
+Replace: .mp3\n
+```
+Explanation: Find all instances of .mp3 then a space
+and replace the space with a newline
+
+#### Question 4:
+```
+Find: (\w+) ([^.]+).mp3
+Replace: \2_\1.mp3
+```
+Explanation: Get the number and then everything up to the
+period before .mp3. Song title_number with a .mp3 at the end.
+
+#### Question 5:
+```
+Find: (\w).*,(\w+),(\w+.\w+),(\w+)
+Replace: \1_\2,\4
+```
+Explanation: Capture first letter of genus, species, and
+numeric variables. Replace with first capture_second capture,last capture
+
+#### Question 6:
+```
+Find: (\w).*,(\w{4}).*,(\w+.\w+),(\w+)
+Replace \1_\2,\4
+```
+Explanation: Same as before but only capture first 4 letters of genus.
+
+#### Question 7:
+```
+Find: (\w{3}).*,(\w{3}).*,(\w+.\w+),(\w+)
+Replace: \1\2, \4, \3
+```
+Explanation: Same as before but only capture first 3 letters of genus and species. Replace in the required format/order.
+
+#### Question 8:
+```
+Find: (\w+,\w+),\w+(.+0\n)
+Replace: \1,0\2
+```
+Explanation: Highlighting all rows where pathogen_load is 0. Replacing the pathogen_binary
+value for such rows with 0.
+
+```
+Find: NA
+Replace: 1
+```
+Explanation: After putting 0s for the rows where pathogen_load is 0, the remaining NA
+pathogen_binary entries should be 1.
+
+```
+Find: [\!\@\#\$\%\^\&\*\(\)\-\+\_\=]
+Replace: 
+```
+Explanation: Looking for any special characters (mainly alternatives to 1-0 on keyboard)
+
+```
+Find: (.*),(worker|male)\s*,(.*)
+Replace: \1,\2,\3
+```
+Explanation: Looking for worker or male (in bee caste column) followed by zero or more whitespace. Drop the whitespace and retain the caste and then everything before and after the caste.

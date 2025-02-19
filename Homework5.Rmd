@@ -1,0 +1,132 @@
+---
+title: "Homework5"
+output: html_document
+date: "2025-02-12"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Solutions to homework 5 problems with code chunks and plain text.
+
+#### Question 1
+``` {r}
+# Assign to the variable n_dims a single random integer between 3 and 10.
+n_dims <- round(runif(n=1, min=3, max=10))
+print(n_dims)
+
+# Create a vector of consecutive integers from 1 to n_dims2
+integers_list <- c(1:n_dims^2)
+print(integers_list)
+
+# Use the sample function to randomly reshuffle these values.
+integers_list_shuffled <- sample(integers_list)
+print(integers_list_shuffled)
+
+# create a square matrix with these elements
+m <- matrix(data=integers_list_shuffled,nrow=n_dims)
+# print out the matrix.
+print(m)
+
+# find a function in r to transpose the matrix.
+m_transposed <- t(m)
+# print it out again and note how it has changed. (rows and cols switch)
+print(m_transposed)
+
+# calculate the sum and the mean of the elements in the first row and then the last row.
+# first row
+sum_first_row = sum(m_transposed[1,])
+mean_first_row = mean(m_transposed[1,])
+print(sum_first_row)
+print(mean_first_row)
+
+# last row
+sum_last_row = sum(m_transposed[n_dims,])
+mean_last_row = mean(m_transposed[n_dims,])
+print(sum_last_row)
+print(mean_last_row)
+
+# read about the eigen() function and use it on your matrix
+eigen_result <- eigen(m_transposed)
+eigenvalues <- eigen_result$values
+eigenvectors <- eigen_result$vectors
+print(eigenvalues)
+print(eigenvectors)
+
+# look carefully at the elements of $values and $vectors in the output. What kind of numbers are these?
+# these look to be complex numbers
+
+# dig in with the typeof() function to figure out their type.
+typeof(eigen_result$values)
+typeof(eigen_result$vectors)
+```
+
+#### Question 2
+``` {r}
+# 2: Create a list with the following named elements
+#my_matrix, which is a 4 x 4 matrix filled with random uniform values
+my_matrix <- matrix(round(runif(16, min=0, max=10)), nrow=4, ncol=4)
+print(my_matrix)
+
+# my_logical which is a 100-element vector of TRUE or FALSE values. Do this efficiently by setting up a vector of random values and then applying an inequality to it.
+random_nums <- runif(100)
+my_logical <- random_nums > 0.5
+print(my_logical)
+
+# my_letters, which is a 26-element vector of all the lower-case letters in random order.
+my_letters <- letters[]
+my_letters <- sample(my_letters)
+print(my_letters)
+
+# create a new list, which has the element[2,2] from the matrix, the second element of the logical vector, and the second element of the letters vector.
+new_list <- list(my_matrix[2,2], my_logical[2], my_letters[2])
+print(new_list)
+
+# use the typeof() function to confirm the underlying data types of each component in this list
+for (object in new_list) {
+  print(typeof(object))
+}
+
+# combine the underlying elements from the new list into a single atomic vector with the c() function.
+vector <- c(new_list[[1]],new_list[[2]],new_list[[3]])
+print(vector)
+
+# what is the data type of this vector?
+typeof(vector)
+```
+
+### Question 3
+``` {r}
+# 3 Create a data frame with the two variables (= columns) and 26 cases (= rows) below:
+
+# call the first variable my_unis and fill it with 26 random uniform values from 0 to 10
+
+# call the second variable my_letters and fill it with 26 capital letters in random order.
+my_unis <- round(runif(26, 0, 10))
+my_letters <- sample(LETTERS[])
+data_frame <- data.frame(my_unis, my_letters)
+print(data_frame)
+
+# for the first variable, use a single line of code in R to select 4 random rows and replace the numerical values in those rows with NA.
+data_frame[sample(1:26, 4, replace = FALSE),1] <- NA
+print(data_frame)
+
+# for the first variable, write a single line of R code to identify which rows have the missing values.
+which(!complete.cases(data_frame))
+
+# re-order the entire data frame to arrange the second variable in alphabetical order
+data_frame[,2] <- sort(data_frame[,2])
+print(data_frame)
+
+# calculate the column mean for the first variable.
+col1 <- data_frame[,1]
+col1 <- col1[complete.cases(col1)]
+col1_mean <- mean(col1)
+print(col1_mean)
+```
+
+
+
+
+

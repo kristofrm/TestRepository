@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2025-02-12" />
+
+<title>Homework5</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="homework.html">Homework</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Homework5</h1>
+<h4 class="date">2025-02-12</h4>
+
+</div>
+
+
+<p>Solutions to homework 5 problems with code chunks and plain text.</p>
+<div id="question-1" class="section level4">
+<h4>Question 1</h4>
+<pre class="r"><code># Assign to the variable n_dims a single random integer between 3 and 10.
+n_dims &lt;- round(runif(n=1, min=3, max=10))
+print(n_dims)</code></pre>
+<pre><code>## [1] 6</code></pre>
+<pre class="r"><code># Create a vector of consecutive integers from 1 to n_dims2
+integers_list &lt;- c(1:n_dims^2)
+print(integers_list)</code></pre>
+<pre><code>##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25
+## [26] 26 27 28 29 30 31 32 33 34 35 36</code></pre>
+<pre class="r"><code># Use the sample function to randomly reshuffle these values.
+integers_list_shuffled &lt;- sample(integers_list)
+print(integers_list_shuffled)</code></pre>
+<pre><code>##  [1] 20 30 22  9  8  1 21  6 36 19 15 14 11 23 18 31 32  7 17 12 27 10  2 24 33
+## [26] 16  4 26  3  5 29 13 35 28 25 34</code></pre>
+<pre class="r"><code># create a square matrix with these elements
+m &lt;- matrix(data=integers_list_shuffled,nrow=n_dims)
+# print out the matrix.
+print(m)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   20   21   11   17   33   29
+## [2,]   30    6   23   12   16   13
+## [3,]   22   36   18   27    4   35
+## [4,]    9   19   31   10   26   28
+## [5,]    8   15   32    2    3   25
+## [6,]    1   14    7   24    5   34</code></pre>
+<pre class="r"><code># find a function in r to transpose the matrix.
+m_transposed &lt;- t(m)
+# print it out again and note how it has changed. (rows and cols switch)
+print(m_transposed)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4] [,5] [,6]
+## [1,]   20   30   22    9    8    1
+## [2,]   21    6   36   19   15   14
+## [3,]   11   23   18   31   32    7
+## [4,]   17   12   27   10    2   24
+## [5,]   33   16    4   26    3    5
+## [6,]   29   13   35   28   25   34</code></pre>
+<pre class="r"><code># calculate the sum and the mean of the elements in the first row and then the last row.
+# first row
+sum_first_row = sum(m_transposed[1,])
+mean_first_row = mean(m_transposed[1,])
+print(sum_first_row)</code></pre>
+<pre><code>## [1] 90</code></pre>
+<pre class="r"><code>print(mean_first_row)</code></pre>
+<pre><code>## [1] 15</code></pre>
+<pre class="r"><code># last row
+sum_last_row = sum(m_transposed[n_dims,])
+mean_last_row = mean(m_transposed[n_dims,])
+print(sum_last_row)</code></pre>
+<pre><code>## [1] 164</code></pre>
+<pre class="r"><code>print(mean_last_row)</code></pre>
+<pre><code>## [1] 27.33333</code></pre>
+<pre class="r"><code># read about the eigen() function and use it on your matrix
+eigen_result &lt;- eigen(m_transposed)
+eigenvalues &lt;- eigen_result$values
+eigenvectors &lt;- eigen_result$vectors
+print(eigenvalues)</code></pre>
+<pre><code>## [1] 109.08718+ 0.000000i -10.99660+21.900205i -10.99660-21.900205i
+## [4] -18.32082+ 0.000000i  11.11342+ 3.891853i  11.11342- 3.891853i</code></pre>
+<pre class="r"><code>print(eigenvectors)</code></pre>
+<pre><code>##              [,1]                     [,2]                     [,3]
+## [1,] 0.3035583+0i  0.022373476-0.21938243i  0.022373476+0.21938243i
+## [2,] 0.3958802+0i  0.278330606+0.02467019i  0.278330606-0.02467019i
+## [3,] 0.4082535+0i -0.009521842+0.45498971i -0.009521842-0.45498971i
+## [4,] 0.3642361+0i  0.136094925-0.39570643i  0.136094925+0.39570643i
+## [5,] 0.2874302+0i -0.676041358+0.00000000i -0.676041358+0.00000000i
+## [6,] 0.6075987+0i  0.154057379+0.10157226i  0.154057379-0.10157226i
+##                [,4]                    [,5]                    [,6]
+## [1,] -0.36682160+0i  0.60781414+0.00000000i  0.60781414+0.00000000i
+## [2,]  0.76980023+0i -0.03005078+0.03468544i -0.03005078-0.03468544i
+## [3,] -0.42246383+0i -0.12461475+0.07183175i -0.12461475-0.07183175i
+## [4,]  0.04920825+0i -0.52861924+0.04517911i -0.52861924-0.04517911i
+## [5,] -0.06036749+0i  0.41765086-0.06065329i  0.41765086+0.06065329i
+## [6,]  0.29716687+0i -0.34197258-0.17672420i -0.34197258+0.17672420i</code></pre>
+<pre class="r"><code># look carefully at the elements of $values and $vectors in the output. What kind of numbers are these?
+# these look to be complex numbers
+
+# dig in with the typeof() function to figure out their type.
+typeof(eigen_result$values)</code></pre>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+<pre class="r"><code>typeof(eigen_result$vectors)</code></pre>
+<pre><code>## [1] &quot;complex&quot;</code></pre>
+</div>
+<div id="question-2" class="section level4">
+<h4>Question 2</h4>
+<pre class="r"><code># 2: Create a list with the following named elements
+#my_matrix, which is a 4 x 4 matrix filled with random uniform values
+my_matrix &lt;- matrix(round(runif(16, min=0, max=10)), nrow=4, ncol=4)
+print(my_matrix)</code></pre>
+<pre><code>##      [,1] [,2] [,3] [,4]
+## [1,]    7    1    6   10
+## [2,]    7    1    1    4
+## [3,]    4    1   10    0
+## [4,]    3    8    8    2</code></pre>
+<pre class="r"><code># my_logical which is a 100-element vector of TRUE or FALSE values. Do this efficiently by setting up a vector of random values and then applying an inequality to it.
+random_nums &lt;- runif(100)
+my_logical &lt;- random_nums &gt; 0.5
+print(my_logical)</code></pre>
+<pre><code>##   [1]  TRUE  TRUE FALSE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE FALSE
+##  [13]  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE FALSE  TRUE  TRUE  TRUE FALSE
+##  [25]  TRUE FALSE FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE  TRUE  TRUE
+##  [37] FALSE  TRUE  TRUE FALSE FALSE FALSE  TRUE FALSE  TRUE FALSE FALSE FALSE
+##  [49] FALSE FALSE  TRUE  TRUE  TRUE FALSE  TRUE FALSE FALSE FALSE FALSE  TRUE
+##  [61] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE  TRUE  TRUE  TRUE  TRUE FALSE
+##  [73] FALSE  TRUE FALSE  TRUE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE
+##  [85] FALSE FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE  TRUE
+##  [97]  TRUE  TRUE  TRUE  TRUE</code></pre>
+<pre class="r"><code># my_letters, which is a 26-element vector of all the lower-case letters in random order.
+my_letters &lt;- letters[]
+my_letters &lt;- sample(my_letters)
+print(my_letters)</code></pre>
+<pre><code>##  [1] &quot;v&quot; &quot;n&quot; &quot;e&quot; &quot;m&quot; &quot;t&quot; &quot;o&quot; &quot;x&quot; &quot;r&quot; &quot;c&quot; &quot;i&quot; &quot;z&quot; &quot;w&quot; &quot;l&quot; &quot;q&quot; &quot;p&quot; &quot;y&quot; &quot;u&quot; &quot;g&quot; &quot;h&quot;
+## [20] &quot;f&quot; &quot;s&quot; &quot;d&quot; &quot;j&quot; &quot;a&quot; &quot;k&quot; &quot;b&quot;</code></pre>
+<pre class="r"><code># create a new list, which has the element[2,2] from the matrix, the second element of the logical vector, and the second element of the letters vector.
+new_list &lt;- list(my_matrix[2,2], my_logical[2], my_letters[2])
+print(new_list)</code></pre>
+<pre><code>## [[1]]
+## [1] 1
+## 
+## [[2]]
+## [1] TRUE
+## 
+## [[3]]
+## [1] &quot;n&quot;</code></pre>
+<pre class="r"><code># use the typeof() function to confirm the underlying data types of each component in this list
+for (object in new_list) {
+  print(typeof(object))
+}</code></pre>
+<pre><code>## [1] &quot;double&quot;
+## [1] &quot;logical&quot;
+## [1] &quot;character&quot;</code></pre>
+<pre class="r"><code># combine the underlying elements from the new list into a single atomic vector with the c() function.
+vector &lt;- c(new_list[[1]],new_list[[2]],new_list[[3]])
+print(vector)</code></pre>
+<pre><code>## [1] &quot;1&quot;    &quot;TRUE&quot; &quot;n&quot;</code></pre>
+<pre class="r"><code># what is the data type of this vector?
+typeof(vector)</code></pre>
+<pre><code>## [1] &quot;character&quot;</code></pre>
+</div>
+<div id="question-3" class="section level3">
+<h3>Question 3</h3>
+<pre class="r"><code># 3 Create a data frame with the two variables (= columns) and 26 cases (= rows) below:
+
+# call the first variable my_unis and fill it with 26 random uniform values from 0 to 10
+
+# call the second variable my_letters and fill it with 26 capital letters in random order.
+my_unis &lt;- round(runif(26, 0, 10))
+my_letters &lt;- sample(LETTERS[])
+data_frame &lt;- data.frame(my_unis, my_letters)
+print(data_frame)</code></pre>
+<pre><code>##    my_unis my_letters
+## 1        2          R
+## 2        8          M
+## 3        1          K
+## 4        7          E
+## 5        7          V
+## 6        5          S
+## 7        5          H
+## 8        0          N
+## 9        5          J
+## 10       9          D
+## 11       9          W
+## 12       4          G
+## 13       7          P
+## 14       4          X
+## 15       0          B
+## 16       5          C
+## 17       7          A
+## 18       8          O
+## 19       7          Q
+## 20       1          Z
+## 21       3          T
+## 22       2          Y
+## 23       7          I
+## 24       2          F
+## 25       2          U
+## 26       5          L</code></pre>
+<pre class="r"><code># for the first variable, use a single line of code in R to select 4 random rows and replace the numerical values in those rows with NA.
+data_frame[sample(1:26, 4, replace = FALSE),1] &lt;- NA
+print(data_frame)</code></pre>
+<pre><code>##    my_unis my_letters
+## 1        2          R
+## 2        8          M
+## 3        1          K
+## 4        7          E
+## 5        7          V
+## 6        5          S
+## 7        5          H
+## 8        0          N
+## 9       NA          J
+## 10       9          D
+## 11       9          W
+## 12       4          G
+## 13       7          P
+## 14      NA          X
+## 15       0          B
+## 16       5          C
+## 17       7          A
+## 18       8          O
+## 19      NA          Q
+## 20       1          Z
+## 21      NA          T
+## 22       2          Y
+## 23       7          I
+## 24       2          F
+## 25       2          U
+## 26       5          L</code></pre>
+<pre class="r"><code># for the first variable, write a single line of R code to identify which rows have the missing values.
+which(!complete.cases(data_frame))</code></pre>
+<pre><code>## [1]  9 14 19 21</code></pre>
+<pre class="r"><code># re-order the entire data frame to arrange the second variable in alphabetical order
+data_frame[,2] &lt;- sort(data_frame[,2])
+print(data_frame)</code></pre>
+<pre><code>##    my_unis my_letters
+## 1        2          A
+## 2        8          B
+## 3        1          C
+## 4        7          D
+## 5        7          E
+## 6        5          F
+## 7        5          G
+## 8        0          H
+## 9       NA          I
+## 10       9          J
+## 11       9          K
+## 12       4          L
+## 13       7          M
+## 14      NA          N
+## 15       0          O
+## 16       5          P
+## 17       7          Q
+## 18       8          R
+## 19      NA          S
+## 20       1          T
+## 21      NA          U
+## 22       2          V
+## 23       7          W
+## 24       2          X
+## 25       2          Y
+## 26       5          Z</code></pre>
+<pre class="r"><code># calculate the column mean for the first variable.
+col1 &lt;- data_frame[,1]
+col1 &lt;- col1[complete.cases(col1)]
+col1_mean &lt;- mean(col1)
+print(col1_mean)</code></pre>
+<pre><code>## [1] 4.681818</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

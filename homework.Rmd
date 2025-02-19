@@ -1,0 +1,11 @@
+---
+title: "homework"
+output: html_document
+date: "2025-02-19"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+Week 3 Homework [HW3 Link](Homework3.html)
