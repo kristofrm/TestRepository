@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+<meta name="date" content="2025-03-05" />
+
+<title>Homework8</title>
+
+<script src="site_libs/header-attrs-2.29/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "\e258";
+  font-family: 'Glyphicons Halflings';
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">My Website</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="about.html">About</a>
+</li>
+<li>
+  <a href="homework.html">Homework</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Homework8</h1>
+<h4 class="date">2025-03-05</h4>
+
+</div>
+
+
+<p>Solutions for homework 8</p>
+<div
+id="q1-examine-the-structure-of-the-iris-data-set.-how-many-observations-and-variables-are-in-the-data-set"
+class="section level4">
+<h4>Q1: Examine the structure of the iris data set. How many
+observations and variables are in the data set?</h4>
+<pre class="r"><code>library(dplyr)</code></pre>
+<pre><code>## 
+## Attaching package: &#39;dplyr&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:stats&#39;:
+## 
+##     filter, lag</code></pre>
+<pre><code>## The following objects are masked from &#39;package:base&#39;:
+## 
+##     intersect, setdiff, setequal, union</code></pre>
+<pre class="r"><code>library(tidyr)
+
+data(iris)</code></pre>
+<p>There are 150 observations and 5 variables</p>
+</div>
+<div
+id="q2-create-a-new-data-frame-iris1-that-contains-only-the-species-virginica-and-versicolor-with-sepal-lengths-longer-than-6-cm-and-sepal-widths-longer-than-2.5-cm.-how-many-observations-and-variables-are-in-the-data-set"
+class="section level4">
+<h4>Q2: Create a new data frame iris1 that contains only the species
+virginica and versicolor with sepal lengths longer than 6 cm and sepal
+widths longer than 2.5 cm. How many observations and variables are in
+the data set?</h4>
+<pre class="r"><code>iris1 &lt;- filter(iris, Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5)</code></pre>
+<p>There are 56 observations and 5 variables in iris1</p>
+</div>
+<div
+id="q3-now-create-a-iris2-data-frame-from-iris1-that-contains-only-the-columns-for-species-sepal.length-and-sepal.width.-how-many-observations-and-variables-are-in-the-data-set"
+class="section level4">
+<h4>Q3: Now, create a iris2 data frame from iris1 that contains only the
+columns for Species, Sepal.Length, and Sepal.Width. How many
+observations and variables are in the data set?</h4>
+<pre class="r"><code>iris2 &lt;- select(iris1, Species, Sepal.Length, Sepal.Width)</code></pre>
+<p>56 observations and 3 variables</p>
+</div>
+<div
+id="q4-create-an-iris3-data-frame-from-iris2-that-orders-the-observations-from-largest-to-smallest-sepal-length.-show-the-first-6-rows-of-this-data-set."
+class="section level4">
+<h4>Q4: Create an iris3 data frame from iris2 that orders the
+observations from largest to smallest sepal length. Show the first 6
+rows of this data set.</h4>
+<pre class="r"><code>iris3 &lt;- arrange(iris2, by=desc(Sepal.Length))
+head(iris3)</code></pre>
+<pre><code>##     Species Sepal.Length Sepal.Width
+## 1 virginica          7.9         3.8
+## 2 virginica          7.7         3.8
+## 3 virginica          7.7         2.6
+## 4 virginica          7.7         2.8
+## 5 virginica          7.7         3.0
+## 6 virginica          7.6         3.0</code></pre>
+</div>
+<div
+id="q5-create-an-iris4-data-frame-from-iris3-that-creates-a-column-with-a-sepal-area-length-width-value-for-each-observation.-how-many-observations-and-variables-are-in-the-data-set"
+class="section level4">
+<h4>Q5: Create an iris4 data frame from iris3 that creates a column with
+a sepal area (length * width) value for each observation. How many
+observations and variables are in the data set?</h4>
+<pre class="r"><code>iris4 &lt;- mutate(iris3, Sepal.Area = Sepal.Length*Sepal.Width)</code></pre>
+<p>56 obs and 4 variables</p>
+</div>
+<div
+id="q6-create-iris5-that-calculates-the-average-sepal-length-the-average-sepal-width-and-the-sample-size-of-the-entire-iris4-data-frame-and-print-iris5."
+class="section level4">
+<h4>Q6: Create iris5 that calculates the average sepal length, the
+average sepal width, and the sample size of the entire iris4 data frame
+and print iris5.</h4>
+<pre class="r"><code>iris5 &lt;- summarize(iris4, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), number = n())
+print(iris5)</code></pre>
+<pre><code>##   avg_sepal_length avg_sepal_width number
+## 1         6.698214        3.041071     56</code></pre>
+</div>
+<div
+id="q7-finally-create-iris6-that-calculates-the-average-sepal-length-the-average-sepal-width-and-the-sample-size-for-each-species-of-in-the-iris4-data-frame-and-print-iris6."
+class="section level4">
+<h4>Q7: Finally, create iris6 that calculates the average sepal length,
+the average sepal width, and the sample size for each species of in the
+iris4 data frame and print iris6.</h4>
+<pre class="r"><code>iris_grouped &lt;- group_by(iris4, Species)
+iris6 &lt;- summarize(iris_grouped, avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), number = n())
+print(iris6)</code></pre>
+<pre><code>## # A tibble: 2 × 4
+##   Species    avg_sepal_length avg_sepal_width number
+##   &lt;fct&gt;                 &lt;dbl&gt;           &lt;dbl&gt;  &lt;int&gt;
+## 1 versicolor             6.48            2.99     17
+## 2 virginica              6.79            3.06     39</code></pre>
+</div>
+<div
+id="q8-see-if-you-can-rework-all-of-your-previous-statements-except-for-iris5-into-an-extended-piping-operation-that-uses-iris-as-the-input-and-generates-irisfinal-as-the-output."
+class="section level4">
+<h4>Q8: See if you can rework all of your previous statements (except
+for iris5) into an extended piping operation that uses iris as the input
+and generates irisFinal as the output.</h4>
+<pre class="r"><code>irisFinal &lt;- iris%&gt;%
+  filter(Species %in% c(&quot;virginica&quot;, &quot;versicolor&quot;), Sepal.Length &gt; 6, Sepal.Width &gt; 2.5)%&gt;%
+  select(Species, Sepal.Length, Sepal.Width) %&gt;%
+  arrange(by=desc(Sepal.Length)) %&gt;%
+  mutate(Sepal.Area = Sepal.Length*Sepal.Width) %&gt;%
+  group_by(Species) %&gt;%
+  summarize(avg_sepal_length = mean(Sepal.Length), avg_sepal_width = mean(Sepal.Width), number = n())</code></pre>
+</div>
+<div
+id="q9-create-a-longer-data-frame-using-the-original-iris-data-set-with-three-columns-named-species-measure-value.-the-column-species-will-retain-the-species-names-of-the-data-set.-the-column-measure-will-include-whether-the-value-corresponds-to-sepal.length-sepal.width-petal.length-or-petal.width-and-the-column-value-will-include-the-numerical-values-of-those-measurements."
+class="section level4">
+<h4>Q9: Create a ‘longer’ data frame using the original iris data set
+with three columns named “Species”, “Measure”, “Value”. The column
+“Species” will retain the species names of the data set. The column
+“Measure” will include whether the value corresponds to Sepal.Length,
+Sepal.Width, Petal.Length, or Petal.Width and the column “Value” will
+include the numerical values of those measurements.</h4>
+<pre class="r"><code>iris_longer &lt;- iris%&gt;%
+  pivot_longer(cols=-Species,
+               names_to = &quot;Measure&quot;,
+               values_to= &quot;Value&quot;,
+               values_drop_na = T)</code></pre>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
