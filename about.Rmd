@@ -1,5 +1,5 @@
 ---
-title: "About This Website"
+title: "About Kristof's Portfolio"
 ---
 
-More about this website.
+Earlier homeworks are simpler. Later homeworks integrate more concepts and become more complex.
