@@ -3,3 +3,5 @@ title: "Kristof's Computational Biology Portfolio"
 ---
 
 This is where I post my homework assignments for BIOL 6100. Use the homework tab for links to individual assignments.
+
+
