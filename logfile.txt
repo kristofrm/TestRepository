@@ -1,0 +1,26 @@
+logfile: logfile.txt
+#######################
+R version: R version 4.4.2 (2024-10-31)
+platform: aarch64-apple-darwin20
+running: macOS Sonoma 14.2
+#----------------------
+random number seed: 813484910
+timestamp: Tue Mar 25 13:53:30 2025
+#----------------------
+libraries loaded:
+common futile.logger log log4r logger logr rlog upscaler
+#######################
+.........50.........100.........150.........200.........250.........300.........350.........400.........450.........500.........550.........600.........650.........700.........750.........800.........850.........900.........950.........1000
+INFO  [25-Mar 13:53:49] end of long loop
+INFO  [25-Mar 13:54:31] end of long loop
+...............10
+INFO  [25-Mar 13:58:46] memory_used=108 MB; i=1
+INFO  [25-Mar 13:58:46] memory_used=108 MB; i=2
+INFO  [25-Mar 13:58:46] memory_used=108 MB; i=3
+INFO  [25-Mar 13:58:46] memory_used=108 MB; i=4
+INFO  [25-Mar 13:58:46] memory_used=108 MB; i=5
+INFO  [25-Mar 13:58:46] memory_used=109 MB; i=6
+INFO  [25-Mar 13:58:46] memory_used=116 MB; i=7
+INFO  [25-Mar 13:58:46] memory_used=188 MB; i=8
+INFO  [25-Mar 13:58:47] memory_used=908 MB; i=9
+INFO  [25-Mar 13:58:54] memory_used=8108 MB; i=10
