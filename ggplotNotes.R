@@ -78,3 +78,33 @@ p1 + theme_void() # data only
 p1 + theme_solarized() # good for web pages
 p1 + theme_economist()
 
+# use theme parameters to modify font and font size
+p1 + theme_classic(base_size=30,base_family='serif')
+
+# defaults: theme_grey, base_size = 16, base_family='Helvetic')
+# font families (Mac): Times, Ariel, Monaco, Courier, Helvetica, serif, sans
+# code for adding additional fonts
+
+library(extrafont)
+
+font_import()
+fonts()
+
+p1 + theme_classic(base_size=35,base_family='Chalkduster')
+
+p2 <- ggplot(data=d) +
+  aes(x=fl,fill=fl)+
+  geom_bar()
+
+p2
+
+p2 + coord_flip() + theme_gray(base_size=20,base_family='sans')
+
+# use attributes for point size shape, color
+p1 <- ggplot(data=d) +
+  aes(x=displ, y=cty) +
+  geom_point(size=4,
+             shape=21,
+             color='black',fill='cyan') +
+  theme_bw(base_size=25,base_family)
+

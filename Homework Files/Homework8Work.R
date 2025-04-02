@@ -108,3 +108,7 @@ p1 <- ggplot(data=df, aes(x=x, y=..density..)) +
 stat4 <- stat_function(aes(x = xval, y = ..y..), fun = dgamma, colour="brown", n = length(z$myVar), args = list(shape=shapeML, rate=rateML))
 
 p1 + stat4
+
+# How do the two histogram profiles compare? Do you think the model is doing a good job of simulating realistic data that match your original measurements? Why or why not?
+
+# 
