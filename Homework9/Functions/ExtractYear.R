@@ -6,6 +6,7 @@
 # outputs: the year of the file name
 ########################################
 extract_year <- function(file_name){
+  library(stringr)
   # Create pattern regex for possible years
   years <- as.character(2015:2023)
   pattern <- paste(years, collapse = "|")

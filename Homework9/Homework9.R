@@ -4,7 +4,7 @@ library(upscaler)
 
 count <- 1
 year <- 2015
-setwd("/Users/kristofrm/TestRepository/Homework9/NEON_count-landbird")
+setwd("/Users/kristofrm/TestRepository/NEON_count-landbird")
 
 file_paths <- list()
 
@@ -28,7 +28,7 @@ build_function("regression_model")
 build_function("generate_histograms")
 
 # Loading the above newly made functions
-r_files <- list.files("~/TestRepository/Homework9/Functions", pattern = "\\.R$", full.names = TRUE)
+r_files <- list.files("~/TestRepository/Functions", pattern = "\\.R$", full.names = TRUE)
 
 for (file in r_files) {
   source(file)
@@ -36,16 +36,12 @@ for (file in r_files) {
 
 # Create an initial empty data frame to hold the above summary statistics-you should have columns for the file name, one for abundance, one for species richness, one for year, and the regression model summary statistics.
 
-# Creating folders and functions
-add_folder("Functions")
 bird_data <- data.frame(
   file_name = character(),
   abundance = numeric(),
   species_richness = numeric(),
   year = character()
 )
-
-add_folder("Plots")
 
 # Using a for loop, run your created functions as a batch process for each folder, changing the working directory as necessary to read in the correct files, calculating summary statistics with your created functions, and then writing them out into your summary statistics data frame.
 
@@ -70,18 +66,4 @@ for (i in 1:length(file_paths)) {
 # Regression model and histogram for bird_data species richness and abundance
 regression_model <- regression_model(bird_data)
 histograms <- generate_histograms(bird_data)
-
-# Save histogram plots
-for (i in seq_along(histograms)) {
-  ggsave(
-    filename = paste0("~/TestRepository/Homework9/Plots/histogram_", i, ".png"),
-    plot = histograms[[i]],
-    bg = "white",
-    width = 8,
-    height = 6,
-    dpi = 300
-  )
-}
-
-
 
